@@ -1,0 +1,9 @@
+#!/bin/bash
+
+DESC="The blackbox exporter allows blackbox probing of endpoints over HTTP, HTTPS, DNS, TCP and ICMP"
+
+/bin/systemctl daemon-reload
+/bin/chmod +x /usr/bin/blackbox_exporter
+
+exit 0
+

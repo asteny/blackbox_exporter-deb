@@ -1,0 +1,31 @@
+#!/bin/bash
+
+DESC="The blackbox exporter allows blackbox probing of endpoints over HTTP, HTTPS, DNS, TCP and ICMP"
+
+
+case "$1" in
+  remove)
+    /bin/systemctl stop blackbox_exporter
+  ;;
+
+  upgrade)
+    /bin/systemctl restart blackbox_exporter
+  ;;
+
+  purge)
+    /bin/rm -fr /etc/default/blackbox_exporter /usr/bin/blackbox_exporter /etc/blackbox.yml
+  ;;
+
+  remove|failed-upgrade|abort-install|abort-upgrade|disappear)
+    /bin/systemctl restart blackbox_exporter
+    exit 0
+  ;;
+
+  *)
+    echo "postrm called with unknown argument \`$1'" >&2
+    exit 1
+  ;;
+
+esac
+
+exit 0

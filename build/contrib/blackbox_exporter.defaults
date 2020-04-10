@@ -1,0 +1,2 @@
+CMD_OPTS="--config.file=/etc/blackbox.yml --web.listen-address=127.0.0.1:9115"
+GOMAXPROCS=4
